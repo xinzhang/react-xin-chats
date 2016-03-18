@@ -44,7 +44,7 @@ class App extends React.Component {
 
 		return (
  			<div>
-		        <AppBar title="Awesome Chat App" />
+		        <AppBar title="XZ - Awesome Chat App" />
 		        <div style={{
 		          display: 'flex',
 		          flexFlow: 'row wrap',

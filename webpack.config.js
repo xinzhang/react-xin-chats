@@ -13,15 +13,15 @@ module.exports = {
   entry: ['./src/main.jsx'],
   output: {
     filename: '[name].js',
-    path: path.join(__dirname, 'build')
-    //publicPath: '/public/'
+    path: path.join(__dirname, 'build'),
+    publicPath: '/build/'
   },
   // plugins: [
   //   new webpack.HotModuleReplacementPlugin(),
   //   new webpack.NoErrorsPlugin()
   // ],
   devServer: {
-    cotnentBase: 'web',
+    contentBase: '.',
     port: 3800,
     hot: true,
     inline: true
@@ -31,10 +31,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         include: path.join(__dirname, 'src'),
-        loader: 'babel-loader',
-        query: {
-          presets: ['es2015', 'react', 'stage-0', 'stage-1']
-        }        
+        loader: 'react-hot-loader!babel-loader',
       },
       {
         test: /\.scss$/,

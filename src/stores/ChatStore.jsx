@@ -13,6 +13,11 @@ class ChatStore {
 	login(user) {
 		this.setState({user: user});
 	}
+
+	@bind(Actions.addMessage)
+	addMessage(message) {
+		console.log('accept message');
+	}
 }
 
 export default alt.createStore(ChatStore);

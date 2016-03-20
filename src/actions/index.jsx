@@ -17,6 +17,17 @@ class Actions {
 		}
 	}
 
+	addMessage(message){
+		return (dispatch) => {
+			console.log('addmessage comes to action');
+			var firebaseRef = new Firebase("https://xz-chatlist.firebaseio.com/messages");
+			firebaseRef.push({
+      			message: message
+      		});
+
+			dispatch(message);
+		}
+	}
 }
 
 export default alt.createActions(Actions);

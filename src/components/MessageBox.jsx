@@ -1,8 +1,9 @@
 import React from 'react';
 import mui from 'material-ui';
 import trim from 'trim';
-import Firebase from 'firebase';
+//import Firebase from 'firebase';
 
+import Actions from '../actions/index.jsx';
 var {Card} = mui;
 
 class MessageBox extends React.Component {
@@ -13,7 +14,7 @@ class MessageBox extends React.Component {
       message:''
     }
 
-    this.firebaseRef = new Firebase("https://xz-chatlist.firebaseio.com/messages");
+    //this.firebaseRef = new Firebase("https://xz-chatlist.firebaseio.com/messages");
   }
 
   onChange(evt) {
@@ -23,11 +24,14 @@ class MessageBox extends React.Component {
   }
 
   onKeyUp(evt) {
-    if (evt.keyCode === 13 && trim(evt.target.value) != '') {
+    if (evt.keyCode === 13 && trim(evt.target.value) != '') {      
       evt.preventDefault();
-      this.firebaseRef.push({
-        message: this.state.message
-      });
+
+      Actions.addMessage(this.state.message);
+
+      // this.firebaseRef.push({
+      //   message: this.state.message
+      // });
 
       this.setState({
         message: ''

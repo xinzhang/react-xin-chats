@@ -7,7 +7,31 @@ import _ from 'lodash';
 
 var {Card, List} = mui;
 
+import connectToStores from 'alt-utils/lib/connectToStores';
+import ChatStore from '../stores/ChatStore.jsx';
+
 class MessageList extends React.Component {
+
+  static getStores(){
+    return [ChatStore];
+  }
+
+  static getPropsFromStores() {
+    return ChatStore.getState();
+  }
+
+  componentDidMount() {
+    ChatStore.listen(this.onChange);
+  }
+
+  componentWillUnmount() {
+    ChatStore.unlisten(this.onChange);
+  }
+
+  onChange(state) {
+    console.log(state);
+  }  
+
   constructor(props){
     super(props);
     this.state = {

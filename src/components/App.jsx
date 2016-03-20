@@ -9,7 +9,7 @@ import ThemeManager from 'material-ui/lib/styles/theme-manager';
 import RawTheme from './rawTheme.jsx'
 
 import connectToStores from 'alt-utils/lib/connectToStores';
-import ChatStore from '../stores/ChatStore';
+import ChatStore from '../stores/ChatStore.jsx';
 
 var Colors = mui.Styles.Colors;
 var AppBar = mui.AppBar;
